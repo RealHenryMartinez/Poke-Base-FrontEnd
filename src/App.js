@@ -1,7 +1,9 @@
 import "./App.css";
 import React from "react";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import PokemonPage from "./pages/PokemonPage";
 
 /**
  * Renders react router
@@ -12,7 +14,8 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route exact path='/' index element={<HomePage />} />
+          <Route path='/pokemon/:id' element={<PokemonPage />}/>
 
           {/* <Route path="/hi-scores" element={<HighScores />} />
           <Route path="/update-scores" element={<UpdateScores />} /> */}
