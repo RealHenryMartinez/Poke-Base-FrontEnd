@@ -1,6 +1,8 @@
 import '../styles/PokeCardStyle.css';
 import pfp from '../assets/images/PokemonRed.webp';
 import typeIcon from '../assets/images/FireIcon.png';
+import PokemonImage from '../assets/images/Charmander.png';
+import PokeballImage from '../assets/images/Pokeball.png';
 
 function pokemonCard() {
     return (
@@ -14,10 +16,22 @@ function pokemonCard() {
                 <p class="pokemon-name">
                     Charmander
                 </p>
-                <img src={typeIcon} class="type-icon" 
+                <img
+                src={typeIcon}
+                class="type-icon" 
                 alt="Element"
                 />
             </div>
+            <img
+                src={PokeballImage}
+                class="pokeball-image"
+                alt="pokeball"
+            />
+            <img
+                src={PokemonImage}
+                class="pokemon-img"
+                alt="pokemonImage"
+            />
         </div>
     )
 };
