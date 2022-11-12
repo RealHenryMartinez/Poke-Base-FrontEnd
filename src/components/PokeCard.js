@@ -1,43 +1,54 @@
 
 import React from 'react'
 
-import { Card } from 'react-bootstrap'
+
 import { Link } from 'react-router-dom'
 
 import '../styles/PokeCardStyle.css';
 import pfp from '../assets/images/PokemonRed.webp';
 import typeIcon from '../assets/images/FireIcon.png';
-import PokemonImage from '../assets/images/Charmander.png';
 import PokeballImage from '../assets/images/Pokeball.png';
 
-function pokemonCard() {
+
+function PokeCard({ pokemon }) {
     return (
-        <div class="poke-card-holder">
-            <div class="icon-wrapper">
+        <div className="poke-card-holder">
+            <div className="icon-wrapper">
                 <img
                  src={pfp} 
-                 class="pfp" 
+                 className="pfp" 
                  alt="userProfilePicture"
                 />
-                <p class="pokemon-name">
-                    Charmander
+
+                <Link to={`/pokemon/${pokemon.name}`} className="link-name">
+                <p className="pokemon-name">
+                    <strong>
+                
+                    #{pokemon.id}{' '}
+                    {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                  </strong>
                 </p>
+                </Link>
+
                 <img
                 src={typeIcon}
-                class="type-icon" 
+                className="type-icon" 
                 alt="Element"
                 />
             </div>
+            
             <img
                 src={PokeballImage}
-                class="pokeball-image"
+                className="pokeball-image"
                 alt="pokeball"
             />
+            <Link to={`/pokemon/${pokemon.id}`}>
             <img
-                src={PokemonImage}
-                class="pokemon-img"
+                src={pokemon.sprites.front_default}
+                className="pokemon-img"
                 alt="pokemonImage"
             />
+            </Link>
         </div>
     )
 };
