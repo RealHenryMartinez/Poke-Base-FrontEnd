@@ -4,4 +4,15 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 50px;
     margin-bottom: 50px;
-};
+}
+
+.card-wrapper {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    /* position: relative; */
+}

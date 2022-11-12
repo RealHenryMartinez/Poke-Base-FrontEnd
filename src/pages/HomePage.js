@@ -11,11 +11,11 @@ function homePage() {
         <p id="app-title">
           PokeBase
         </p>
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
+        <div className="card-wrapper">
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+        </div>
         {/* <a
           className="App-link"
           href="https://reactjs.org"
