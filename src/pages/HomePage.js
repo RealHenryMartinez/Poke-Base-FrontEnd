@@ -34,7 +34,7 @@ function HomePage() {
   }, [])
 
   return (
-    <div className="App">
+    <div className="App" >
 
       <SideBar />
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
@@ -54,11 +54,11 @@ function HomePage() {
         )}
       </>
       
-        <div className="card-wrapper">
+        {/* <div className="card-wrapper">
           <PokemonCard />
           <PokemonCard />
           <PokemonCard />
-        </div>
+        </div> */}
   
     </div>
   )
