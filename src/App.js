@@ -13,8 +13,10 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<HomePage />} />
+
           {/* <Route path="/hi-scores" element={<HighScores />} />
           <Route path="/update-scores" element={<UpdateScores />} /> */}
+          
           <Route path="*" element={<Navigate to="" />} />
         </Routes>
       </BrowserRouter>

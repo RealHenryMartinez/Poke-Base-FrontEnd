@@ -6,11 +6,17 @@ function pokemonCard() {
     return (
         <div class="poke-card-holder">
             <div class="icon-wrapper">
-                <img src={pfp} class="pfp" />
+                <img
+                 src={pfp} 
+                 class="pfp" 
+                 alt="userProfilePicture"
+                />
                 <p class="pokemon-name">
                     Charmander
                 </p>
-                <img src={typeIcon} class="type-icon" />
+                <img src={typeIcon} class="type-icon" 
+                alt="Element"
+                />
             </div>
         </div>
     )

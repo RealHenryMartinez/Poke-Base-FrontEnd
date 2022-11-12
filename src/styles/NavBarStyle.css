@@ -1,5 +1,9 @@
-#Nav-Bar-Background {
-    background-color: #FF7777;
-    height: 130px;
-    margin-top: -16px;
-};
+.navbar {
+    background-color: #FF7878;
+    height: 125px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky;
+    top: 0;
+  }
