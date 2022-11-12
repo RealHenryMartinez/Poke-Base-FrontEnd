@@ -35,6 +35,7 @@ function HomePage() {
 
   return (
     <div className="App">
+
       <SideBar />
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <p id="app-title">PokeBase</p>
@@ -45,26 +46,20 @@ function HomePage() {
         ) : (
           <Row>
             {pokemon.map((p) => (
-              <Col key={p.name} xs={12} sm={12} md={4} lg={4} xl={4}>
+              <div className="card-wrapper" key={p.name} xs={12} sm={12} md={4} lg={4} xl={4}>
                 <PokeCard pokemon={p} />
-              </Col>
+              </div>
             ))}
           </Row>
         )}
       </>
-      {/* <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard /> */}
-      {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
+      
+        <div className="card-wrapper">
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+        </div>
+  
     </div>
   )
 }
