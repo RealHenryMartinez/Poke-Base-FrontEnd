@@ -1,22 +1,63 @@
-
 import '../styles/HomePageStyle.css'
-import PokemonCard from '../components/PokeCard';
-import NavBar from '../components/SideBar';
+import PokemonCard from '../components/PokeCard'
+import SideBar from '../components/SideBar'
+import Loader from '../components/Loader'
 
-function homePage() {
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import PokeCard from '../components/PokeCard'
+import { Row, Col } from 'react-bootstrap'
+
+function HomePage() {
+  const [pokemon, setPokemon] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const getPokemonList = async () => {
+    console.log('get pokemon')
+    let pokemonArray = []
+    for (let i = 1; i <= 151; i++) {
+      const response = await getPokemonData(i);
+      pokemonArray.push(response.data)
+    }
+    console.log(pokemonArray)
+    setPokemon(pokemonArray)
+    setLoading(false)
+  }
+
+  const getPokemonData = async (id) => {
+    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    return res
+  }
+
+  useEffect(() => {
+    getPokemonList()
+  }, [])
+
   return (
     <div className="App">
-        <NavBar />
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p id="app-title">
-          PokeBase
-        </p>
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
-        <PokemonCard />
-        {/* <a
+      <SideBar />
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      <p id="app-title">PokeBase</p>
+
+      <>
+        {loading ? (
+          <Loader />
+        ) : (
+          <Row>
+            {pokemon.map((p) => (
+              <Col key={p.name} xs={12} sm={12} md={4} lg={4} xl={4}>
+                <PokeCard pokemon={p} />
+              </Col>
+            ))}
+          </Row>
+        )}
+      </>
+      {/* <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard /> */}
+      {/* <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
@@ -25,7 +66,7 @@ function homePage() {
           Learn React
         </a> */}
     </div>
-  );
+  )
 }
 
-export default homePage;
+export default HomePage
