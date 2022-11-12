@@ -1,7 +1,7 @@
-import logo from '../logo.svg';
+
 import '../styles/HomePageStyle.css'
 import PokemonCard from '../components/PokeCard';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/SideBar';
 
 function homePage() {
   return (
