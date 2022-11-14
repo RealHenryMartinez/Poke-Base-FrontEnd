@@ -5,6 +5,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import '../styles/PokeCardStyle.css';
+import '../styles/HomePageStyle.css'
+
 import pfp from '../assets/images/PokemonRed.webp';
 import typeIcon from '../assets/images/FireIcon.png';
 import PokeballImage from '../assets/images/Pokeball.png';
@@ -12,7 +14,8 @@ import PokeballImage from '../assets/images/Pokeball.png';
 
 function PokeCard({ pokemon }) {
     return (
-        <div className="poke-card-holder">
+      <div >
+        <div >
             <div className="icon-wrapper">
                 <img
                  src={pfp} 
@@ -50,6 +53,7 @@ function PokeCard({ pokemon }) {
             />
             </Link>
         </div>
+      </div>
     )
 };
 

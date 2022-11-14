@@ -1,5 +1,7 @@
 import '../styles/HomePageStyle.css'
-import PokemonCard from '../components/PokeCard'
+import '../styles/PokemonPageStyle.css'
+import '../styles/PokeCardStyle.css'
+
 import SideBar from '../components/SideBar'
 import Loader from '../components/Loader'
 
@@ -34,31 +36,37 @@ function HomePage() {
   }, [])
 
   return (
-    <div className="App" >
+    <div  >
 
       <SideBar />
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <p id="app-title">PokeBase</p>
 
+
       <>
         {loading ? (
           <Loader />
         ) : (
-          <Row>
+          <Row >
+            <div className="card-wrapper">
             {pokemon.map((p) => (
-              <div className="card-wrapper" key={p.name} xs={12} sm={12} md={4} lg={4} xl={4}>
+
+              
+              <div  className={`
+              ${p.types[0].type.name}
+              ` } id="poke-card-holder" key={p.name} xs={12} sm={12} md={4} lg={4} xl={4}>
                 <PokeCard pokemon={p} />
               </div>
+
+
             ))}
+            </div>
+            
+
           </Row>
         )}
       </>
-      
-        {/* <div className="card-wrapper">
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-        </div> */}
+
   
     </div>
   )
