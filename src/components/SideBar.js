@@ -1,3 +1,6 @@
+// SideBar.js is the hamburger menu you see on the top-left corner and
+// it gives you paths you can click on to go to those routes.
+
 import React from 'react'
 
 import { useState } from 'react';
@@ -69,4 +72,4 @@ const SideBar = () => {
   )
 }
 
-export default SideBar
+export default SideBar;

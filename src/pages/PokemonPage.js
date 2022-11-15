@@ -141,4 +141,4 @@ const PokemonPage = () => {
   )
 }
 
-export default PokemonPage
+export default PokemonPage;

@@ -1,0 +1,22 @@
+.input-pokemon {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.type-selector-box {
+    background-color: blue;
+    width: 50%;
+}
+
+.inputter {
+    margin-top: 10px;
+}
+
+#display-image {
+    height: 211px;
+    width: 375px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+}
