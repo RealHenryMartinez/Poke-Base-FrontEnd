@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import SubmitEntryPage from "./pages/SubmitEntryPage";
 import PokemonPage from "./pages/PokemonPage";
+import PostingPokemonPage from "./pages/PostingPokemonPage";
 
 /**
  * Renders react router
@@ -20,6 +21,8 @@ export default function App() {
           <Route path='/pokemon/:id' element={<PokemonPage />}/>
 
           <Route path='/submit-entry' element={<SubmitEntryPage/>}/>
+
+          <Route path='/add' element={<PostingPokemonPage />} />
 
           <Route path="*" element={<Navigate to="" />} />
 
