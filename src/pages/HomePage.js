@@ -14,6 +14,9 @@ function HomePage() {
   const [pokemon, setPokemon] = useState([])
   const [loading, setLoading] = useState(true)
 
+  // getting pokemon icons and making new ones
+  
+
   const getPokemonList = async () => {
     console.log('get pokemon')
     let pokemonArray = []

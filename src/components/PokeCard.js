@@ -16,12 +16,14 @@ function PokeCard({ pokemon }) {
     return (
       <div >
         <div >
+        
             <div className="icon-wrapper">
                 <img
                  src={pfp} 
                  className="pfp" 
                  alt="userProfilePicture"
                 />
+                
 
                 <Link to={`/pokemon/${pokemon.name}`} className="link-name">
                 <p className="pokemon-name">
@@ -32,19 +34,24 @@ function PokeCard({ pokemon }) {
                   </strong>
                 </p>
                 </Link>
-
+            
                 <img
                 src={typeIcon}
                 className="type-icon" 
                 alt="Element"
                 />
+                
+
             </div>
+            
             
             <img
                 src={PokeballImage}
                 className="pokeball-image"
                 alt="pokeball"
+                
             />
+            
             <Link to={`/pokemon/${pokemon.id}`}>
             <img
                 src={pokemon.sprites.front_default}
@@ -53,6 +60,7 @@ function PokeCard({ pokemon }) {
             />
             </Link>
         </div>
+        
       </div>
     )
 };

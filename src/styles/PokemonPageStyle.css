@@ -23,10 +23,22 @@
   .grass {
     background-color: rgb(38, 235, 90);
     
+    
   }
   
   .fire {
     background-color: rgb(235, 71, 38);
+    
+  }
+
+  .fire .type-div {
+    background-image: url('../assets/images/FireIcon.png');
+    background-repeat: no-repeat, repeat;
+    height: 55px;
+    width: 55px;
+    margin-left: 15%;
+    display: inline-block;
+    
   }
   
   .water {
