@@ -1,19 +1,21 @@
-
 import React from 'react'
-
 
 import { Link } from 'react-router-dom'
 
 import '../styles/PokeCardStyle.css';
-import '../styles/HomePageStyle.css'
+import '../styles/HomePageStyle.css';
 
 import pfp from '../assets/images/PokemonRed.webp';
 import typeIcon from '../assets/images/FireIcon.png';
 import PokeballImage from '../assets/images/Pokeball.png';
 
 
-function PokeCard({ pokemon }) {
-    return (
+function PokeCard(props) {
+  function alertFunction(){
+    alert(`${props.pokemon.types[0].type.name}`)
+  }  
+  
+  return (
       <div >
         <div >
         
@@ -25,22 +27,35 @@ function PokeCard({ pokemon }) {
                 />
                 
 
-                <Link to={`/pokemon/${pokemon.name}`} className="link-name">
+                <Link to={`/pokemon/${props.pokemon.name}`} className="link-name">
                 <p className="pokemon-name">
                     <strong>
                 
-                    #{pokemon.id}{' '}
-                    {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                    #{props.pokemon.id}{' '}
+                    {props.pokemon.name.charAt(0).toUpperCase() + props.pokemon.name.slice(1)}
                   </strong>
                 </p>
                 </Link>
-            
+
+
                 <img
+
                 src={typeIcon}
-                className="type-icon" 
+                id="type-icon"
                 alt="Element"
+
                 />
                 
+
+
+                /> *
+                <button onClick={alertFunction} style={{ backgroundColor: "red"}}></button>
+
+                <div
+                className = {`${props.pokemon.types[0].type.name}`}
+                // className = "grass"
+                id = "type-icon">
+                </div>
 
             </div>
             
@@ -51,10 +66,12 @@ function PokeCard({ pokemon }) {
                 alt="pokeball"
                 
             />
-            
-            <Link to={`/pokemon/${pokemon.id}`}>
+
+
+            <Link to={`/pokemon/${props.pokemon.id}`}>
+
             <img
-                src={pokemon.sprites.front_default}
+                src={props.pokemon.sprites.front_default}
                 className="pokemon-img"
                 alt="pokemonImage"
             />
