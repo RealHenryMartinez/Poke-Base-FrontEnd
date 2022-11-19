@@ -9,8 +9,11 @@ import pfp from '../assets/images/PokemonRed.webp';
 import typeIcon from '../assets/images/FireIcon.png';
 import PokeballImage from '../assets/images/Pokeball.png';
 
+import * as GiIcons from "react-icons/gi";
+
 
 function PokeCard(props) {
+
   function alertFunction(){
     alert(`${props.pokemon.types[0].type.name}`)
   }  
@@ -37,24 +40,12 @@ function PokeCard(props) {
                 </p>
                 </Link>
 
-
-                <img
-
-                src={typeIcon}
-                id="type-icon"
-                alt="Element"
-
-                />
-                
-
-
-                /> *
-                <button onClick={alertFunction} style={{ backgroundColor: "red"}}></button>
-
                 <div
-                className = {`${props.pokemon.types[0].type.name}`}
-                // className = "grass"
-                id = "type-icon">
+                className = {`${props.pokemon.types[0].type.name}-icon`}
+                id = "type-icon"
+                onClick={alertFunction}
+                >
+                  <GiIcons.GiAbstract008 id="icon"/>
                 </div>
 
             </div>
