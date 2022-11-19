@@ -21,12 +21,14 @@ function PokeCard(props) {
   return (
       <div >
         <div >
+        
             <div className="icon-wrapper">
                 <img
                  src={pfp} 
                  className="pfp" 
                  alt="userProfilePicture"
                 />
+                
 
                 <Link to={`/pokemon/${props.pokemon.name}`} className="link-name">
                 <p className="pokemon-name">
@@ -45,15 +47,20 @@ function PokeCard(props) {
                 >
                   <GiIcons.GiAbstract008 id="icon"/>
                 </div>
+
             </div>
+            
             
             <img
                 src={PokeballImage}
                 className="pokeball-image"
                 alt="pokeball"
+                
             />
 
+
             <Link to={`/pokemon/${props.pokemon.id}`}>
+
             <img
                 src={props.pokemon.sprites.front_default}
                 className="pokemon-img"
@@ -61,6 +68,7 @@ function PokeCard(props) {
             />
             </Link>
         </div>
+        
       </div>
     )
 };
