@@ -26,13 +26,28 @@ const PokemonPage = () => {
   }
 
   const getPokemonData = async (id) => {
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    return res
+    
   }
 
+
   useEffect(() => {
-    getPokemon(id)
+    async function fetchData(id) {
+      try {
+        const data = await axios.get(`http://localhost:4020/poke-cards/${id}`)
+        setPokemonDetails(data.data.payload)
+    console.log(data)
+    setLoading(false)
+
+      }
+      catch (e) {
+        console.log(e)
+
+      }
+    }
+    fetchData(id)
   }, [])
+
+  console.log(pokemonDetails);
 
   return (
     <>
@@ -45,25 +60,25 @@ const PokemonPage = () => {
               className="my-3 p-3 rounded text-center shadow p-3 mb-5 bg-white"
               style={{ border: 'none' }}
             >
-              <Link to={`/pokemon/${pokemonDetails.id}`}>
+              <Link to={`/poke-cards/${pokemonDetails._id}`}>
                 <Card.Img
                   style={{ width: '15rem' }}
-                  src={pokemonDetails.sprites.front_default}
+                  src={pokemonDetails.photo}
                   variant="top"
                 />
               </Link>
               <Card.Body
-                className={`${pokemonDetails.types[0].type.name} rounded text-white`}
+                className={`${pokemonDetails.pokemonTypeOne} rounded text-white`}
               >
                 <Link
-                  to={`/pokemon/${pokemonDetails.name}`}
+                  to={`/poke-cards/${pokemonDetails._id}`}
                   className="link-name"
                 >
                   <Card.Title as="div">
                     <strong>
-                      #{pokemonDetails.id}{' '}
-                      {pokemonDetails.name.charAt(0).toUpperCase() +
-                        pokemonDetails.name.slice(1)}
+                      #{pokemonDetails._id}{' '}
+                      {pokemonDetails.pokemonName +
+                        pokemonDetails.pokemonName}
                     </strong>
                   </Card.Title>
                 </Link>
@@ -77,30 +92,19 @@ const PokemonPage = () => {
             >
               <Card.Body>
                 {/* <Card.Text> */}
-                <Row>
-                  {pokemonDetails.types.map((t) => (
-                    <Col key={t.type.name}>
-                      <div
-                        className={`${t.type.name} rounded px-4 py-1`}
-                        style={{ color: 'white' }}
-                      >
-                        {t.type.name.toUpperCase()}
-                      </div>
-                    </Col>
-                  ))}
-                </Row>
+                
                 <Row>
                   <Col>
                     <Card.Img
                       style={{ width: '15rem' }}
-                      src={pokemonDetails.sprites.front_default}
+                      src={pokemonDetails.photo}
                     />
                     <Card.Text>Normal Form</Card.Text>
                   </Col>
                   <Col>
                     <Card.Img
                       style={{ width: '15rem' }}
-                      src={pokemonDetails.sprites.front_shiny}
+                      src={pokemonDetails.photo}
                     />
                     <Card.Text>Shiny Form</Card.Text>
                   </Col>
@@ -112,25 +116,11 @@ const PokemonPage = () => {
                       style={{ border: '1px black solid' }}
                     >
                       Abilities
+                      <p>{pokemonDetails.foodOne}</p>
                     </div>
                   </Col>
                 </Row>
-                <Row className="text-center">
-                  {pokemonDetails.abilities.map((a) => (
-                    <Col
-                      key={a.ability.name}
-                      xs={6}
-                      sm={6}
-                      md={6}
-                      lg={6}
-                      xl={6}
-                    >
-                      <div className={`rounded px-4 py-1`}>
-                        {a.ability.name.toUpperCase()}
-                      </div>
-                    </Col>
-                  ))}
-                </Row>
+                
                 {/* </Card.Text> */}
               </Card.Body>
             </Card>

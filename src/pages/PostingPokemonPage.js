@@ -16,6 +16,10 @@ const PostingPokemonPage = () => {
     foodTwo: '',
     foodThree: '',
   })
+
+
+  
+
   // takes in all the data from the form and posts them through the post request with axios
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -41,13 +45,28 @@ const PostingPokemonPage = () => {
 
     // putting the form data appended to the new data retrieved and sent to the server
     axios
-      .post('http://localhost:4020/addPokemon', formData)
+      .post('http://localhost:4020/addPokemon', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', 
+          'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Headers':'*',
+            'Content-Type': 'multipart/form-data',
+            'Authorization': 'Bearer IFMEWWRWLJGTOSBWIJFEIQSCJJFVIVSEG5NEWNSKIRGTOTKQIRKDMUKQGJBFETCFJ5GUENSSIJHUEQJWIFHE4NSWIZHE6TCFGVJUMV2VLFIUKVSPKBMEMNKRGVJFMU2KIRIUUQKMIFIU2R2ZGNJFSTSRIQZEUN2GIVFFC7COIE',
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Credentials' : true,
+
+            'Access-Control-Allow-Methods':'POST',
+
+            'Accept':'application/json, text/plain, */*'
+        }} )
       .then((res) => {
         console.log(res)
+        
       })
       .catch((err) => {
         console.log(err)
       })
+      
   }
 
   const handleChange = (e) => {
@@ -113,8 +132,16 @@ const PostingPokemonPage = () => {
   const handlePhoto = (e) => {
     setNewUser({ ...newUser, photo: e.target.files[0] })
   }
+  console.log(newUser.photo)
+
+  
 
   return (
+    <>
+    
+
+
+
     <form onSubmit={handleSubmit} encType="multipart/form-data">
       <input
         type="file"
@@ -258,6 +285,9 @@ const PostingPokemonPage = () => {
       {/* initiate the form submission */}
       <input type="submit" />
     </form>
+
+    <img src={newUser.photo.file} />
+    </>
   )
 }
 
