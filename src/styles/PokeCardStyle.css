@@ -123,3 +123,89 @@
   .fairy {
     background-color: rgb(255, 148, 191);
   }
+
+/* e */
+
+#icon {
+  height: 55px;
+  width: 55px;
+}
+
+.grass-icon {
+    background-color: aquamarine;
+    border-radius: 15px;
+  }
+
+.fire-icon {
+    background-color: lightcoral;
+    border-radius: 15px;
+  }
+  
+  .water-icon {
+    background-color: aqua;
+    border-radius: 15px;
+  }
+  
+  .electric-icon {
+    background-color: yellow;
+    border-radius: 15px;
+  }
+  
+  .ice-icon {
+    background-color: lightblue;
+    border-radius: 15px;
+  }
+  
+  .fighting-icon {
+    background-color: orange;
+    border-radius: 15px;
+  }
+  
+  .poison-icon {
+    background-color: violet;
+    border-radius: 15px;
+  }
+  .ground-icon {
+    background-color: brown;
+    border-radius: 15px;
+  }
+  
+  .flying-icon {
+    background-color: white;
+    border-radius: 15px;
+  }
+  
+  .psychic-icon {
+    background-color: pink;
+    border-radius: 15px;
+  }
+  
+  .ghost-icon {
+    background-color: magenta;
+    border-radius: 15px;
+  }
+  
+  .bug-icon {
+    background-color: lime;
+    border-radius: 15px;
+  }
+  
+  .rock-icon {
+    background-color: goldenrod;
+    border-radius: 15px;
+  }
+  
+  .dragon-icon {
+    background-color: blueviolet;
+    border-radius: 15px;
+  }
+  
+  .normal-icon {
+    background-color: gray;
+    border-radius: 15px;
+  }
+  
+  .fairy-icon {
+    background-color: hotpink;
+    border-radius: 15px;
+  }
