@@ -2,9 +2,9 @@
 
 import React from 'react'
 
-import * as AiIcons from 'react-icons/ai';
+import * as AiIcons from 'react-icons/ai'
 
-import "../styles/SideBar.css"
+import '../styles/SideBar.css'
 
 // Title will appear on the Side Bar
 // React Ai Icons has many icons
@@ -12,18 +12,18 @@ import "../styles/SideBar.css"
 // Finally, the cName gives the path the font as well as making it clickable and its color
 
 export const SideBarRoutesData = [
-    {
-        title: "Home",
-        icon: <AiIcons.AiFillHome />,
-        path: '/',
-        cName: 'nav-text'
-    },
+  // Structure for the sidebar data passed as objects
+  {
+    title: 'Home',
+    icon: <AiIcons.AiFillHome />,
+    path: '/',
+    cName: 'nav-text',
+  },
 
-    {
-        title: "Submit Entry",
-        icon: <AiIcons.AiFillEdit/>,
-        path: '/submit-entry',
-        cName: 'nav-text'
-    },
-
+  {
+    title: 'Submit Entry',
+    icon: <AiIcons.AiFillEdit />,
+    path: '/submit-entry',
+    cName: 'nav-text',
+  },
 ]

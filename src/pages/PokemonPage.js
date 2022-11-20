@@ -11,46 +11,32 @@ const PokemonPage = () => {
   // gets pokemon parameter which is the ID of the url
   const params = useParams()
 
-  console.log(params)
-
+  // pokemonDetails is the data for the pokemon that has been submitted from the form
   const [pokemonDetails, setPokemonDetails] = useState()
   const [loading, setLoading] = useState(true)
 
+  // setting the variable id to the data from the parameter of the web page
   const id = params.id
 
-  const getPokemon = async (id) => {
-    const details = await getPokemonData(id)
-    setPokemonDetails(details.data)
-    console.log(details.data)
-    setLoading(false)
-  }
-
-  const getPokemonData = async (id) => {
-    
-  }
-
-
+  // getting data of the specific one id from the parameter of the web page and setting the state of pokemonDetails as the axios request it gets
   useEffect(() => {
     async function fetchData(id) {
       try {
+        // getting data of the specific one id from the parameter of the web page
         const data = await axios.get(`http://localhost:4020/poke-cards/${id}`)
         setPokemonDetails(data.data.payload)
-    console.log(data)
-    setLoading(false)
 
-      }
-      catch (e) {
-        console.log(e)
-
-      }
+        // after the data has been "fetched", we set the state of setLoading to false and load the data
+        setLoading(false)
+      } catch (e) {}
     }
+    // calling in the function and passing in id from the variable id
     fetchData(id)
   }, [])
 
-  console.log(pokemonDetails);
-
   return (
     <>
+      {/* When the data is fetched, change the state of loading to false to render the data of the one pokemon */}
       {loading ? (
         <Loader />
       ) : (
@@ -77,8 +63,7 @@ const PokemonPage = () => {
                   <Card.Title as="div">
                     <strong>
                       #{pokemonDetails._id}{' '}
-                      {pokemonDetails.pokemonName +
-                        pokemonDetails.pokemonName}
+                      {pokemonDetails.pokemonName + pokemonDetails.pokemonName}
                     </strong>
                   </Card.Title>
                 </Link>
@@ -92,7 +77,7 @@ const PokemonPage = () => {
             >
               <Card.Body>
                 {/* <Card.Text> */}
-                
+
                 <Row>
                   <Col>
                     <Card.Img
@@ -120,7 +105,7 @@ const PokemonPage = () => {
                     </div>
                   </Col>
                 </Row>
-                
+
                 {/* </Card.Text> */}
               </Card.Body>
             </Card>
@@ -131,4 +116,4 @@ const PokemonPage = () => {
   )
 }
 
-export default PokemonPage;
+export default PokemonPage
