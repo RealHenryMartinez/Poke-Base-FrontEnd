@@ -19,12 +19,17 @@ function HomePage() {
   const deleteScore = async (id) => {
     try {
       const url = API_URL + `delete-pokemon/${id}`
-      await axios.delete(url)
-      setPokemon(
+      const res = await axios.delete(url)
+      console.log(res.data)
+      const filteredList = () =>
         pokemon.filter((score) => {
-          return score.id !== id 
-        }),
-      )
+          // important to know how the id key is defined which is _id in the data set
+          return score._id !== id
+        })
+
+      setPokemon(filteredList())
+      setLoading(false)
+      console.log('new poke list: ', pokemon)
       console.log('success, we delete the score')
     } catch (e) {}
   }
@@ -45,9 +50,7 @@ function HomePage() {
 
     // call the async function
     fetchData()
-
-    // use the dependency pokemon so when the state changes through a delete, put, etc request, it will refresh the page and display the new data on the state
-  }, [pokemon])
+  }, [])
 
   return (
     <div encType="multipart/form-data">
