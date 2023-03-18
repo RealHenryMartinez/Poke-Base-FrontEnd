@@ -1,26 +1,76 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  #root {
-    background-color: rgb(240, 240, 240);
-  }
-  
-  .link-name {
-    text-decoration: none;
-    color: white;
-    font-size: 1.3rem;
-  }
-  
-  .link-name:hover {
-    cursor: pointer;
-    color: rgb(227, 227, 227);
-  }
-  
-  /* Extra Background Colors */
-  /* .grass {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  background-color: rgb(240, 240, 240);
+}
+
+.link-name {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.link-name:hover {
+  cursor: pointer;
+  color: rgb(227, 227, 227);
+}
+
+.food-list {
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+
+
+}
+
+#header {
+  padding: 2%;
+  text-align: center;
+}
+
+#pokemon-name {
+  font-size: 25px;
+}
+
+.food-item {
+  padding: 2%;
+  margin: 1%;
+  background-color: #FF7878;
+
+}
+
+.poke-detail-card {
+  flex-wrap: wrap;
+  background-color: rgb(227, 227, 227);
+  padding: 2%;
+  margin-top: 1%;
+}
+
+#normal-form-image {
+ flex: 1;
+ width: 10%;
+  margin: 2%;
+  filter: grayscale(80%);
+
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#pokemon-info-container {
+  flex: 1;
+  padding: 5%;
+
+}
+
+/* Extra Background Colors */
+/* .grass {
     background-color: rgb(38, 235, 90);
     
     
