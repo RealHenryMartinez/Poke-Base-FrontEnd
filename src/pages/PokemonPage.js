@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Card, Row, Col } from 'react-bootstrap'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import '../styles/PokemonPageStyle.css'
 
 // Components
@@ -40,77 +40,44 @@ const PokemonPage = () => {
       {loading ? (
         <Loader />
       ) : (
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Card
-              className="my-3 p-3 rounded text-center shadow p-3 mb-5 bg-white"
-              style={{ border: 'none' }}
-            >
-              <Link to={`/poke-cards/${pokemonDetails._id}`}>
-                <Card.Img
-                  style={{ width: '15rem' }}
-                  src={pokemonDetails.photo}
-                  variant="top"
-                />
-              </Link>
-              <Card.Body
-                className={`${pokemonDetails.pokemonTypeOne} rounded text-white`}
-              >
-                <Link
-                  to={`/poke-cards/${pokemonDetails._id}`}
-                  className="link-name"
-                >
-                  <Card.Title as="div">
-                    <strong>
-                      #{pokemonDetails._id}{' '}
-                      {pokemonDetails.pokemonName + pokemonDetails.pokemonName}
-                    </strong>
-                  </Card.Title>
-                </Link>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Card
-              className="p-3 rounded text-center shadow p-3 mb-5 bg-white"
-              style={{ border: 'none' }}
-            >
-              <Card.Body>
-                {/* <Card.Text> */}
+        <>
+          <Card.Body
+            id="header"
+            className={`${pokemonDetails.pokemonTypeOne} rounded text-white`}
+          >
+              <strong id="pokemon-name">{pokemonDetails.pokemonName}</strong>
 
-                <Row>
-                  <Col>
-                    <Card.Img
-                      style={{ width: '15rem' }}
-                      src={pokemonDetails.photo}
-                    />
-                    <Card.Text>Normal Form</Card.Text>
-                  </Col>
-                  <Col>
-                    <Card.Img
-                      style={{ width: '15rem' }}
-                      src={pokemonDetails.photo}
-                    />
-                    <Card.Text>Shiny Form</Card.Text>
-                  </Col>
-                </Row>
-                <Row className="mt-4">
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                    <div
-                      className="px-4 py-1 rounded"
-                      style={{ border: '1px black solid' }}
-                    >
-                      Abilities
-                      <p>{pokemonDetails.foodOne}</p>
-                    </div>
-                  </Col>
-                </Row>
+          </Card.Body>
 
-                {/* </Card.Text> */}
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+          <Card.Body className="pokemon-container">
+            <Card.Img
+              id="normal-form-image"
+              src={`http://localhost:4020/${pokemonDetails.photo}`}
+            />
+            <div id="pokemon-info-container">
+              <div>
+                <div className="poke-detail-card">
+                  <h3 id="food-header">Top 3 Favorite Foods</h3>
+                  <div className="food-list">
+                    <p className="food-item">{pokemonDetails.foodOne}</p>
+                    <p className="food-item">{pokemonDetails.foodTwo}</p>
+                    <p className="food-item">{pokemonDetails.foodThree}</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="poke-detail-card">
+                  <h3 id="food-header">Region / Gender / Caught</h3>
+                  <div className="food-list">
+                    <p className="food-item">{pokemonDetails.pokemonRegion}</p>
+                    <p className="food-item">{pokemonDetails.pokemonGender}</p>
+                    <p className="food-item">{pokemonDetails.pokemonCatch}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card.Body>
+        </>
       )}
     </>
   )
